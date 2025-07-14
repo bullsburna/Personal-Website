@@ -6,8 +6,8 @@ function App() {
     <> 
       <BrowserRouter>
         <Routes>
-          <Route index element={}/>
-          <Route />
+          <Route index element={<Home />}/>
+          <Route path ="*" element = {<NotFound />}/>
         </Routes>
       </BrowserRouter>
     </>
