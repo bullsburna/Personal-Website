@@ -11,7 +11,7 @@ const projects = [
     id: 2,
     title: "Euchre AI Bot",
     description:
-      "Building out a fully playable Euchre game with a few house rules. Doing research currently on how best implement the bots using reinforcement learning for competitive games.",
+      "Building out a fully playable Euchre game with a few house rules. Doing research currently on how best to implement the bots using reinforcement learning for competitive games.",
     tags: ["Python"],
     github: "https://github.com/bullsburna/EuchreGame",
   },
