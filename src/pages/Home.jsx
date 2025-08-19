@@ -3,6 +3,7 @@ import { HeroSection } from "../components/HeroSection";
 import { AboutSection } from "../components/AboutSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { ViewMoreButton } from "../components/ViewMoreButton";
+import { CurrentlyConsumingSection } from "../components/CurrentlyConsumingSection";
 
 export const Home = () => {
     return (
@@ -12,6 +13,7 @@ export const Home = () => {
                 <HeroSection/>
                 <AboutSection />
                 <ProjectsSection />
+                <CurrentlyConsumingSection />
             </main>
             <ViewMoreButton />
         </div>

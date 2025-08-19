@@ -9,7 +9,7 @@ export const HeroSection = () => {
                     <span className="opacity-0 animate-fade-in-delay-2"> {" "} Brian Jett </span>
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3 text-primary"> I'm always on the lookout for new subjects to dive into. 
-                    This website shares a little about me — my interests, projects, and what I’m currently exploring.
+                    This website shares a little about me. From my interests, to my projects, and what I’m currently exploring.
                     Take a look around and enjoy!
                 </p>
             </div>
