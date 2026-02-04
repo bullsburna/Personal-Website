@@ -4,10 +4,11 @@ export const ImageCarousel = ({
   items,
   className = "",
   autoPlayMs = 0,
-  fit = "cover",            // "cover" | "contain"
+  fit = "cover", // "cover" | "contain"
   position = "center",
   captionPlacement = "below", // "below" | "overlay"
-  frame = false,            // adds a subtle frame around the image
+  frame = false, // adds a subtle frame around the image
+  showReviewLink = false,
 }) => {
   const [idx, setIdx] = useState(0);
   const next = useCallback(() => setIdx((i) => (i + 1) % items.length), [items.length]);
@@ -55,8 +56,22 @@ export const ImageCarousel = ({
       </div>
 
       {captionPlacement === "below" && active?.caption && (
-        <div className="mt-2 text-center text-[11px] sm:text-xs text-foreground/90 leading-snug">
+        <div className="mt-2 min-h-10 rounded-md border border-border bg-card/55 px-2 py-1.5 text-center text-[11px] sm:text-xs text-foreground/90 leading-snug">
           {active.caption}
+        </div>
+      )}
+
+      {showReviewLink && !!active?.reviewUrl && (
+        <div className="mt-2 text-center">
+          <a
+            href={active.reviewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-primary hover:underline"
+            onClick={(e) => e.stopPropagation()}
+          >
+            Read review
+          </a>
         </div>
       )}
 
@@ -76,4 +91,3 @@ export const ImageCarousel = ({
     </div>
   );
 };
-

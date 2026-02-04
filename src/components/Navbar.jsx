@@ -17,6 +17,7 @@ export const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -26,29 +27,32 @@ export const Navbar = () => {
       <nav
         className={cn(
           "fixed w-full z-40 transition-all duration-300",
-          isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+          isScrolled ? "py-3 bg-background/85 backdrop-blur-md border-b border-border" : "py-5"
         )}
       >
         <div className="container flex items-center justify-between">
-          <a
-            className="text-xl font-bold text-primary flex items-center"
-            href="#hero"
-          >
-            <span className="relative z-10">
-              <span className="text-foreground"> Brian Jett </span>
-            </span>
+          <a className="text-lg sm:text-xl font-semibold text-foreground flex items-center" href="#hero">
+            Brian Jett
           </a>
 
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item, key) => (
+          <div className="hidden md:flex items-center gap-7">
+            {navItems.map((item) => (
               <a
-                key={key}
+                key={item.name}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                className="text-sm uppercase tracking-[0.08em] text-foreground/75 hover:text-primary transition-colors duration-200"
               >
                 {item.name}
               </a>
             ))}
+            <a
+              href="/images/Jett_Brian_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 rounded-md border border-border text-xs uppercase tracking-[0.08em] text-foreground/85 hover:border-primary hover:text-primary transition-colors duration-200"
+            >
+              Resume
+            </a>
           </div>
 
           <button
@@ -65,15 +69,13 @@ export const Navbar = () => {
         className={cn(
           "fixed inset-0 bg-background/95 backdrop-blur-md z-30 flex flex-col items-center justify-center",
           "transition-all duration-300 md:hidden",
-          isMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+          isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
         <div className="flex flex-col space-y-8 text-xl">
-          {navItems.map((item, key) => (
+          {navItems.map((item) => (
             <a
-              key={key}
+              key={item.name}
               href={item.href}
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
               onClick={(e) => {
@@ -83,10 +85,7 @@ export const Navbar = () => {
                   const el = document.querySelector(item.href);
                   if (el) {
                     const yOffset = -80;
-                    const y =
-                      el.getBoundingClientRect().top +
-                      window.pageYOffset +
-                      yOffset;
+                    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
                     window.scrollTo({ top: y, behavior: "smooth" });
                   }
                 }, 100);
@@ -95,6 +94,14 @@ export const Navbar = () => {
               {item.name}
             </a>
           ))}
+          <a
+            href="/images/Jett_Brian_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground/80 hover:text-primary transition-colors duration-300"
+          >
+            Resume
+          </a>
         </div>
       </div>
     </>
